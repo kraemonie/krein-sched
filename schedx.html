@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Weekly Schedule</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EE;
+    --ink:#1B2027;
+    --ink-soft:#5B6472;
+    --grid-line:#D9DCE2;
+    --card:#FFFFFF;
+    --you:#4A5FC1;
+    --you-soft:#EDEFFA;
+    --gf:#E0645A;
+    --gf-soft:#FCEBE9;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: -1px -1px;
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    padding: 28px 16px 60px;
+  }
+
+  .wrap{ max-width: 1280px; margin:0 auto; }
+
+  header{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:16px;
+    margin-bottom:20px;
+    padding-bottom:18px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:6px;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight:700; margin:0; line-height:1.05;
+  }
+  .who{
+    display:flex; gap:14px; font-family:'IBM Plex Mono', monospace; font-size:12px;
+  }
+  .who span{
+    display:flex; align-items:center; gap:6px;
+  }
+  .dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+  .dot.you{ background:var(--you); }
+  .dot.gf{ background:var(--gf); }
+
+  .scroll-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+
+  .schedule{
+    display:grid;
+    grid-template-columns: 52px repeat(7, minmax(140px,1fr));
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    border-radius:10px 10px 0 0;
+    min-width: 1030px;
+  }
+  .corner, .daycol-head{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    padding:10px 6px;
+    border-bottom:1.5px solid var(--ink);
+    border-left:1px solid var(--grid-line);
+    text-align:center;
+  }
+  .corner{ border-left:none; color:var(--ink-soft); }
+  .daycol-head{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600; font-size:14px; letter-spacing:.03em;
+    padding:10px 4px 8px;
+  }
+  .subhead{
+    display:flex; margin-top:6px; border-top:1px dashed var(--grid-line); padding-top:6px;
+  }
+  .subhead div{
+    flex:1; font-family:'IBM Plex Mono', monospace; font-weight:600;
+    font-size:9.5px; letter-spacing:.05em;
+  }
+  .subhead .you{ color:var(--you); }
+  .subhead .gf{ color:var(--gf); }
+
+  .grid-body{
+    display:grid;
+    grid-template-columns: 52px repeat(7, minmax(140px,1fr));
+    min-width: 1030px;
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    border-top:none;
+    border-radius:0 0 10px 10px;
+  }
+  .timecol{
+    display:grid;
+    grid-template-rows: repeat(11, 56px);
+    border-right:1.5px solid var(--ink);
+  }
+  .timecol div{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px; color:var(--ink-soft);
+    padding:4px 6px 0 0; text-align:right;
+    border-bottom:1px dashed var(--grid-line);
+  }
+  .daygroup{
+    position:relative;
+    display:flex;
+    border-left:1px solid var(--grid-line);
+    height: 616px;
+  }
+  .subcol{
+    position:relative;
+    flex:1;
+    background-image: repeating-linear-gradient(
+      to bottom, transparent, transparent 55px, var(--grid-line) 55px, var(--grid-line) 56px
+    );
+  }
+  .subcol.you{ background-color:var(--you-soft); }
+  .subcol.gf{ background-color:var(--gf-soft); border-left:1px dashed var(--grid-line); }
+  .subcol.empty::after{
+    content:"—";
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    color:#C7CCD4; font-size:11px; font-family:'IBM Plex Mono', monospace;
+  }
+
+  .block{
+    position:absolute;
+    left:3px; right:3px;
+    border-radius:6px;
+    padding:4px 5px 3px;
+    color:#fff;
+    overflow:hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,.16);
+    font-family:'Space Grotesk', sans-serif;
+  }
+  .block.you{ background:var(--you); }
+  .block.gf{ background:var(--gf); }
+  .block .code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9px; font-weight:600; opacity:.9;
+  }
+  .block .title{
+    font-size:10.5px; font-weight:600; line-height:1.12; margin-top:1px;
+  }
+  .block .time{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:8px; opacity:.9; margin-top:2px;
+  }
+
+  footer{
+    margin-top:22px; text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; color:var(--ink-soft);
+  }
+  footer .note{ color:#5FA777; margin-top:4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <div class="eyebrow">Side by side</div>
+      <h1>Our Weekly Schedule</h1>
+    </div>
+    <div class="who">
+      <span><i class="dot you"></i>You</span>
+      <span><i class="dot gf"></i>GF</span>
+    </div>
+  </header>
+
+  <div class="scroll-wrap">
+  <div class="schedule">
+    <div class="corner">TIME</div>
+    <div class="daycol-head">MON<div class="subhead"><div class="you">KRIS</div><div class="gf">RHEIN</div></div></div>
+    <div class="daycol-head">TUE<div class="subhead"><div class="you">KRIS</div><div class="gf">RHEIN</div></div></div>
+    <div class="daycol-head">WED<div class="subhead"><div class="you">KRIS</div><div class="gf">RHEIN</div></div></div>
+    <div class="daycol-head">THU<div class="subhead"><div class="you">KRIS</div><div class="gf">RHEIN</div></div></div>
+    <div class="daycol-head">FRI<div class="subhead"><div class="you">KRIS</div><div class="gf">RHEIN</div></div></div>
+    <div class="daycol-head">SAT<div class="subhead"><div class="you">KRIS</div><div class="gf">RHEIN</div></div></div>
+    <div class="daycol-head">SUN<div class="subhead"><div class="you">KRIS</div><div class="gf">RHEIN</div></div></div>
+  </div>
+
+  <div class="grid-body">
+    <div class="timecol">
+      <div>7 AM</div><div>8 AM</div><div>9 AM</div><div>10 AM</div><div>11 AM</div>
+      <div>12 PM</div><div>1 PM</div><div>2 PM</div><div>3 PM</div><div>4 PM</div><div>5 PM</div>
+    </div>
+
+    <!-- MON -->
+    <div class="daygroup">
+      <div class="subcol you">
+        <div class="block you" style="top:0%; height:45.45%;"><div class="code">PHYS 111</div><div class="title">Gen Physics 1</div><div class="time">7–12</div></div>
+        <div class="block you" style="top:54.55%; height:27.27%;"><div class="code">GEd 107</div><div class="title">Ethics</div><div class="time">1–4</div></div>
+      </div>
+      <div class="subcol gf">
+        <div class="block gf" style="top:0%; height:13.64%;"><div class="code">FILI 101</div><div class="title">Fili 101</div><div class="time">7–8:30</div></div>
+        <div class="block gf" style="top:13.64%; height:13.64%;"><div class="code">GEd 111</div><div class="title">GEd 111</div><div class="time">8:30–10</div></div>
+        <div class="block gf" style="top:40.91%; height:13.64%;"><div class="code">GEd 110</div><div class="title">GEd 110</div><div class="time">11:30–1</div></div>
+        <div class="block gf" style="top:81.82%; height:13.64%;"><div class="code">FILI 103</div><div class="title">Fili 103</div><div class="time">4–5:30</div></div>
+      </div>
+    </div>
+
+    <!-- TUE -->
+    <div class="daygroup">
+      <div class="subcol you">
+        <div class="block you" style="top:27.27%; height:27.27%;"><div class="code">AI 101</div><div class="title">Linear Algebra AI</div><div class="time">10–1</div></div>
+      </div>
+      <div class="subcol gf">
+        <div class="block gf" style="top:0%; height:13.64%;"><div class="code">GEd 111</div><div class="title">GEd 111</div><div class="time">7–8:30</div></div>
+      </div>
+    </div>
+
+    <!-- WED -->
+    <div class="daygroup">
+      <div class="subcol you">
+        <div class="block you" style="top:54.55%; height:27.27%;"><div class="code">PATHFit 3</div><div class="title">PATHFit</div><div class="time">1–4</div></div>
+      </div>
+      <div class="subcol gf">
+        <div class="block gf" style="top:0%; height:13.64%;"><div class="code">FILI 101</div><div class="title">Fili 101</div><div class="time">7–8:30</div></div>
+        <div class="block gf" style="top:13.64%; height:13.64%;"><div class="code">LITR 101</div><div class="title">Litr 101</div><div class="time">8:30–10</div></div>
+        <div class="block gf" style="top:40.91%; height:13.64%;"><div class="code">GEd 110</div><div class="title">GEd 110</div><div class="time">11:30–1</div></div>
+        <div class="block gf" style="top:68.18%; height:13.64%;"><div class="code">COMM 103</div><div class="title">Comm 103</div><div class="time">2:30–4</div></div>
+        <div class="block gf" style="top:81.82%; height:18.18%;"><div class="code">PATHFIT 3</div><div class="title">PATHFit</div><div class="time">4–6</div></div>
+      </div>
+    </div>
+
+    <!-- THU -->
+    <div class="daygroup">
+      <div class="subcol you">
+        <div class="block you" style="top:0%; height:45.45%;"><div class="code">PT 101</div><div class="title">Platform Tech</div><div class="time">7–12</div></div>
+        <div class="block you" style="top:54.55%; height:45.45%;"><div class="code">NET 101</div><div class="title">Networking</div><div class="time">1–6</div></div>
+      </div>
+      <div class="subcol gf">
+        <div class="block gf" style="top:0%; height:13.64%;"><div class="code">GEd 103</div><div class="title">GEd 103</div><div class="time">7–8:30</div></div>
+      </div>
+    </div>
+
+    <!-- FRI -->
+    <div class="daygroup">
+      <div class="subcol you empty"></div>
+      <div class="subcol gf">
+        <div class="block gf" style="top:13.64%; height:13.64%;"><div class="code">LITR 101</div><div class="title">Litr 101</div><div class="time">8:30–10</div></div>
+        <div class="block gf" style="top:40.91%; height:13.64%;"><div class="code">GEd 103</div><div class="title">GEd 103</div><div class="time">11:30–1</div></div>
+        <div class="block gf" style="top:54.55%; height:13.64%;"><div class="code">COMM 103</div><div class="title">Comm 103</div><div class="time">1–2:30</div></div>
+        <div class="block gf" style="top:81.82%; height:13.64%;"><div class="code">FILI 103</div><div class="title">Fili 103</div><div class="time">4–5:30</div></div>
+      </div>
+    </div>
+
+    <!-- SAT -->
+    <div class="daygroup">
+      <div class="subcol you empty"></div>
+      <div class="subcol gf empty"></div>
+    </div>
+
+    <!-- SUN -->
+    <div class="daygroup">
+      <div class="subcol you">
+        <div class="block you" style="top:0%; height:45.45%;"><div class="code">CC 104</div><div class="title">Info Mgmt</div><div class="time">7–12</div></div>
+        <div class="block you" style="top:54.55%; height:45.45%;"><div class="code">OOP 101</div><div class="title">OOP</div><div class="time">1–6</div></div>
+      </div>
+      <div class="subcol gf empty"></div>
+    </div>
+  </div>
+  </div>
+
+  <footer>
+    oh hey there pretty rheiners<br>
+    <span class="note">SPIDERMAN🕸️</span>
+  </footer>
+</div>
+</body>
+  </html>
