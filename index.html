@@ -106,7 +106,7 @@
   }
   .timecol{
     display:grid;
-    grid-template-rows: repeat(11, 56px);
+    grid-template-rows: repeat(12, 56px);
     border-right:1.5px solid var(--ink);
   }
   .timecol div{
@@ -119,7 +119,7 @@
     position:relative;
     display:flex;
     border-left:1px solid var(--grid-line);
-    height: 616px;
+    height: 672px;
   }
   .subcol{
     position:relative;
@@ -198,80 +198,84 @@
   <div class="grid-body">
     <div class="timecol">
       <div>7 AM</div><div>8 AM</div><div>9 AM</div><div>10 AM</div><div>11 AM</div>
-      <div>12 PM</div><div>1 PM</div><div>2 PM</div><div>3 PM</div><div>4 PM</div><div>5 PM</div>
+      <div>12 PM</div><div>1 PM</div><div>2 PM</div><div>3 PM</div><div>4 PM</div><div>5 PM</div><div>6 PM</div>
     </div>
 
     <!-- MON -->
     <div class="daygroup">
-      <div class="subcol you">
-        <div class="block you" style="top:0%; height:45.45%;"><div class="code">PHYS 111</div><div class="title">Gen Physics 1</div><div class="time">7–12</div></div>
-        <div class="block you" style="top:54.55%; height:27.27%;"><div class="code">GEd 107</div><div class="title">Ethics</div><div class="time">1–4</div></div>
-      </div>
+      <div class="subcol you empty"></div>
       <div class="subcol gf">
-        <div class="block gf" style="top:0%; height:13.64%;"><div class="code">FILI 101</div><div class="title">Fili 101</div><div class="time">7–8:30</div></div>
-        <div class="block gf" style="top:13.64%; height:13.64%;"><div class="code">GEd 111</div><div class="title">GEd 111</div><div class="time">8:30–10</div></div>
-        <div class="block gf" style="top:40.91%; height:13.64%;"><div class="code">GEd 110</div><div class="title">GEd 110</div><div class="time">11:30–1</div></div>
-        <div class="block gf" style="top:81.82%; height:13.64%;"><div class="code">FILI 103</div><div class="title">Fili 103</div><div class="time">4–5:30</div></div>
+        <div class="block gf" style="top:62.5%; height:12.5%;"><div class="code">GEd 111</div><div class="title">Tech Writing</div><div class="time">2:30–4</div></div>
+        <div class="block gf" style="top:75%; height:12.5%;"><div class="code">Fili 103</div><div class="title">Retorika</div><div class="time">4–5:30</div></div>
+        <div class="block gf" style="top:87.5%; height:12.5%;"><div class="code">GEd 110</div><div class="title">Und. the World</div><div class="time">5:30–7</div></div>
       </div>
     </div>
 
     <!-- TUE -->
     <div class="daygroup">
       <div class="subcol you">
-        <div class="block you" style="top:27.27%; height:27.27%;"><div class="code">AI 101</div><div class="title">Linear Algebra AI</div><div class="time">10–1</div></div>
+        <div class="block you" style="top:8.33%; height:41.67%;"><div class="code">NET 101</div><div class="title">Networking</div><div class="time">8–1</div></div>
+        <div class="block you" style="top:62.5%; height:12.5%;"><div class="code">GEd 107</div><div class="title">Ethics</div><div class="time">2:30–4</div></div>
+        <div class="block you" style="top:75%; height:16.67%;"><div class="code">PATHFit 3</div><div class="title">PATHFit</div><div class="time">4–6</div></div>
       </div>
       <div class="subcol gf">
-        <div class="block gf" style="top:0%; height:13.64%;"><div class="code">GEd 111</div><div class="title">GEd 111</div><div class="time">7–8:30</div></div>
+        <div class="block gf" style="top:37.5%; height:12.5%;"><div class="code">Fili 101</div><div class="title">Fili 101</div><div class="time">11:30–1</div></div>
+        <div class="block gf" style="top:75%; height:12.5%;"><div class="code">GEd 103</div><div class="title">Rizal</div><div class="time">4–5:30</div></div>
       </div>
     </div>
 
     <!-- WED -->
     <div class="daygroup">
-      <div class="subcol you">
-        <div class="block you" style="top:54.55%; height:27.27%;"><div class="code">PATHFit 3</div><div class="title">PATHFit</div><div class="time">1–4</div></div>
-      </div>
+      <div class="subcol you empty"></div>
       <div class="subcol gf">
-        <div class="block gf" style="top:0%; height:13.64%;"><div class="code">FILI 101</div><div class="title">Fili 101</div><div class="time">7–8:30</div></div>
-        <div class="block gf" style="top:13.64%; height:13.64%;"><div class="code">LITR 101</div><div class="title">Litr 101</div><div class="time">8:30–10</div></div>
-        <div class="block gf" style="top:40.91%; height:13.64%;"><div class="code">GEd 110</div><div class="title">GEd 110</div><div class="time">11:30–1</div></div>
-        <div class="block gf" style="top:68.18%; height:13.64%;"><div class="code">COMM 103</div><div class="title">Comm 103</div><div class="time">2:30–4</div></div>
-        <div class="block gf" style="top:81.82%; height:18.18%;"><div class="code">PATHFIT 3</div><div class="title">PATHFit</div><div class="time">4–6</div></div>
+        <div class="block gf" style="top:37.5%; height:12.5%;"><div class="code">COMM 103</div><div class="title">Comm 103</div><div class="time">11:30–1</div></div>
+        <div class="block gf" style="top:75%; height:16.67%;"><div class="code">PATHFit 3</div><div class="title">PATHFit</div><div class="time">4–6</div></div>
       </div>
     </div>
 
     <!-- THU -->
     <div class="daygroup">
       <div class="subcol you">
-        <div class="block you" style="top:0%; height:45.45%;"><div class="code">PT 101</div><div class="title">Platform Tech</div><div class="time">7–12</div></div>
-        <div class="block you" style="top:54.55%; height:45.45%;"><div class="code">NET 101</div><div class="title">Networking</div><div class="time">1–6</div></div>
+        <div class="block you" style="top:0%; height:25%;"><div class="code">CC 104</div><div class="title">Info Mgmt</div><div class="time">7–10</div></div>
+        <div class="block you" style="top:25%; height:25%;"><div class="code">PT 101</div><div class="title">Platform Tech</div><div class="time">10–1</div></div>
       </div>
       <div class="subcol gf">
-        <div class="block gf" style="top:0%; height:13.64%;"><div class="code">GEd 103</div><div class="title">GEd 103</div><div class="time">7–8:30</div></div>
+        <div class="block gf" style="top:37.5%; height:12.5%;"><div class="code">Fili 101</div><div class="title">Fili 101</div><div class="time">11:30–1</div></div>
+        <div class="block gf" style="top:75%; height:12.5%;"><div class="code">Litr 101</div><div class="title">Litr 101</div><div class="time">4–5:30</div></div>
       </div>
     </div>
 
     <!-- FRI -->
     <div class="daygroup">
-      <div class="subcol you empty"></div>
+      <div class="subcol you">
+        <div class="block you" style="top:4.17%; height:12.5%;"><div class="code">GEd 107</div><div class="title">Ethics</div><div class="time">7:30–9</div></div>
+        <div class="block you" style="top:16.67%; height:16.67%;"><div class="code">PT 101</div><div class="title">Platform Tech</div><div class="time">9–11</div></div>
+        <div class="block you" style="top:33.33%; height:16.67%;"><div class="code">PHYS 111</div><div class="title">Gen Physics 1</div><div class="time">11–1</div></div>
+        <div class="block you" style="top:58.33%; height:16.67%;"><div class="code">CC 104</div><div class="title">Info Mgmt</div><div class="time">2–4</div></div>
+      </div>
       <div class="subcol gf">
-        <div class="block gf" style="top:13.64%; height:13.64%;"><div class="code">LITR 101</div><div class="title">Litr 101</div><div class="time">8:30–10</div></div>
-        <div class="block gf" style="top:40.91%; height:13.64%;"><div class="code">GEd 103</div><div class="title">GEd 103</div><div class="time">11:30–1</div></div>
-        <div class="block gf" style="top:54.55%; height:13.64%;"><div class="code">COMM 103</div><div class="title">Comm 103</div><div class="time">1–2:30</div></div>
-        <div class="block gf" style="top:81.82%; height:13.64%;"><div class="code">FILI 103</div><div class="title">Fili 103</div><div class="time">4–5:30</div></div>
+        <div class="block gf" style="top:12.5%; height:12.5%;"><div class="code">GEd 111</div><div class="title">Tech Writing</div><div class="time">8:30–10</div></div>
+        <div class="block gf" style="top:25%; height:12.5%;"><div class="code">Litr 101</div><div class="title">Litr 101</div><div class="time">10–11:30</div></div>
+        <div class="block gf" style="top:50%; height:12.5%;"><div class="code">COMM 103</div><div class="title">Comm 103</div><div class="time">1–2:30</div></div>
+        <div class="block gf" style="top:62.5%; height:12.5%;"><div class="code">GEd 103</div><div class="title">Rizal</div><div class="time">2:30–4</div></div>
+        <div class="block gf" style="top:75%; height:12.5%;"><div class="code">Fili 103</div><div class="title">Retorika</div><div class="time">4–5:30</div></div>
+        <div class="block gf" style="top:87.5%; height:12.5%;"><div class="code">GEd 110</div><div class="title">Und. the World</div><div class="time">5:30–7</div></div>
       </div>
     </div>
 
     <!-- SAT -->
     <div class="daygroup">
-      <div class="subcol you empty"></div>
+      <div class="subcol you">
+        <div class="block you" style="top:0%; height:41.67%;"><div class="code">OOP 101</div><div class="title">OOP</div><div class="time">7–12</div></div>
+        <div class="block you" style="top:50%; height:25%;"><div class="code">PHYS 111</div><div class="title">Gen Physics 1</div><div class="time">1–4</div></div>
+      </div>
       <div class="subcol gf empty"></div>
     </div>
 
     <!-- SUN -->
     <div class="daygroup">
       <div class="subcol you">
-        <div class="block you" style="top:0%; height:45.45%;"><div class="code">CC 104</div><div class="title">Info Mgmt</div><div class="time">7–12</div></div>
-        <div class="block you" style="top:54.55%; height:45.45%;"><div class="code">OOP 101</div><div class="title">OOP</div><div class="time">1–6</div></div>
+        <div class="block you" style="top:75%; height:25%;"><div class="code">AI 101</div><div class="title">Linear Algebra AI</div><div class="time">4–7</div></div>
       </div>
       <div class="subcol gf empty"></div>
     </div>
@@ -284,4 +288,4 @@
   </footer>
 </div>
 </body>
-                                                                               </html>
+</html>
