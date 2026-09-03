@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" type="image/x-icon" href="icon.jpg">
 <style>
   :root{
     --paper:#F6F4EE;
@@ -53,14 +52,20 @@
     font-weight:700; margin:0; line-height:1.05;
   }
   .who{
-    display:flex; gap:14px; font-family:'IBM Plex Mono', monospace; font-size:12px;
+    display:flex; flex-direction:column; align-items:flex-end; gap:6px;
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
   }
+  .who .row{ display:flex; gap:14px; }
   .who span{
     display:flex; align-items:center; gap:6px;
   }
   .dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
   .dot.you{ background:var(--you); }
   .dot.gf{ background:var(--gf); }
+  .sec-line{
+    font-size:10px; color:var(--ink-soft); text-align:right;
+  }
+  .sec-line b{ color:var(--ink); }
 
   .scroll-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
 
@@ -161,6 +166,10 @@
     font-family:'IBM Plex Mono', monospace;
     font-size:8px; opacity:.9; margin-top:2px;
   }
+  .block .room{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:7.5px; opacity:.8; margin-top:1px;
+  }
 
   footer{
     margin-top:22px; text-align:center;
@@ -168,6 +177,7 @@
     font-size:11px; color:var(--ink-soft);
   }
   footer .note{ color:#5FA777; margin-top:4px; }
+  footer .fine{ font-size:9.5px; margin-top:8px; display:block; }
 </style>
 </head>
 <body>
@@ -179,8 +189,11 @@
       <h1>Weekly Sched</h1>
     </div>
     <div class="who">
-      <span><i class="dot you"></i>KRIS</span>
-      <span><i class="dot gf"></i>RHEIN</span>
+      <div class="row">
+        <span><i class="dot you"></i>KRIS</span>
+        <span><i class="dot gf"></i>RHEIN</span>
+      </div>
+      <div class="sec-line"><b>KRIS:</b> IT-2109/LIPA &nbsp;·&nbsp; <b>RHEIN:</b> ABCOMM-2103/LIPA*</div>
     </div>
   </header>
 
@@ -206,22 +219,23 @@
     <div class="daygroup">
       <div class="subcol you empty"></div>
       <div class="subcol gf">
-        <div class="block gf" style="top:62.5%; height:12.5%;"><div class="code">GEd 111</div><div class="title">Tech Writing</div><div class="time">2:30–4</div></div>
-        <div class="block gf" style="top:75%; height:12.5%;"><div class="code">Fili 103</div><div class="title">Retorika</div><div class="time">4–5:30</div></div>
-        <div class="block gf" style="top:87.5%; height:12.5%;"><div class="code">GEd 110</div><div class="title">Und. the World</div><div class="time">5:30–7</div></div>
+        <div class="block gf" style="top:62.5%; height:12.5%;"><div class="code">GEd 111</div><div class="title">Tech Writing</div><div class="time">2:30–4</div><div class="room">SL · ABCOMM-2103</div></div>
+        <div class="block gf" style="top:75%; height:12.5%;"><div class="code">Fili 103</div><div class="title">Retorika</div><div class="time">4–5:30</div><div class="room">SL · ABCOMM-2103</div></div>
+        <div class="block gf" style="top:87.5%; height:12.5%;"><div class="code">GEd 110</div><div class="title">Und. the World</div><div class="time">5:30–7</div><div class="room">GZB 204 · ABCOMM-1104</div></div>
       </div>
     </div>
 
     <!-- TUE -->
     <div class="daygroup">
       <div class="subcol you">
-        <div class="block you" style="top:8.33%; height:41.67%;"><div class="code">NET 101</div><div class="title">Networking</div><div class="time">8–1</div></div>
-        <div class="block you" style="top:62.5%; height:12.5%;"><div class="code">GEd 107</div><div class="title">Ethics</div><div class="time">2:30–4</div></div>
-        <div class="block you" style="top:75%; height:16.67%;"><div class="code">PATHFit 3</div><div class="title">PATHFit</div><div class="time">4–6</div></div>
+        <div class="block you" style="top:8.33%; height:16.67%;"><div class="code">NET 101</div><div class="title">Networking</div><div class="time">8–10</div><div class="room">GZB 303</div></div>
+        <div class="block you" style="top:25%; height:25%;"><div class="code">NET 101</div><div class="title">Networking</div><div class="time">10–1</div><div class="room">TSB 502</div></div>
+        <div class="block you" style="top:62.5%; height:12.5%;"><div class="code">GEd 107</div><div class="title">Ethics</div><div class="time">2:30–4</div><div class="room">GZB 304</div></div>
+        <div class="block you" style="top:75%; height:16.67%;"><div class="code">PATHFit 3</div><div class="title">PATHFit</div><div class="time">4–6</div><div class="room">FIELD</div></div>
       </div>
       <div class="subcol gf">
-        <div class="block gf" style="top:37.5%; height:12.5%;"><div class="code">Fili 101</div><div class="title">Fili 101</div><div class="time">11:30–1</div></div>
-        <div class="block gf" style="top:75%; height:12.5%;"><div class="code">GEd 103</div><div class="title">Rizal</div><div class="time">4–5:30</div></div>
+        <div class="block gf" style="top:37.5%; height:12.5%;"><div class="code">Fili 101</div><div class="title">Fili 101</div><div class="time">11:30–1</div><div class="room">VMB 405 · ABCOMM-1104</div></div>
+        <div class="block gf" style="top:75%; height:12.5%;"><div class="code">GEd 103</div><div class="title">Rizal</div><div class="time">4–5:30</div><div class="room">SL · ABCOMM-2103</div></div>
       </div>
     </div>
 
@@ -229,46 +243,47 @@
     <div class="daygroup">
       <div class="subcol you empty"></div>
       <div class="subcol gf">
-        <div class="block gf" style="top:37.5%; height:12.5%;"><div class="code">COMM 103</div><div class="title">Comm 103</div><div class="time">11:30–1</div></div>
-        <div class="block gf" style="top:75%; height:16.67%;"><div class="code">PATHFit 3</div><div class="title">PATHFit</div><div class="time">4–6</div></div>
+        <div class="block gf" style="top:37.5%; height:12.5%;"><div class="code">COMM 103</div><div class="title">Comm 103</div><div class="time">11:30–1</div><div class="room">VMB 303 · ABCOMM-2103</div></div>
+        <div class="block gf" style="top:75%; height:16.67%;"><div class="code">PATHFit 3</div><div class="title">PATHFit</div><div class="time">4–6</div><div class="room">ABCOMM-2103</div></div>
       </div>
     </div>
 
     <!-- THU -->
     <div class="daygroup">
       <div class="subcol you">
-        <div class="block you" style="top:0%; height:25%;"><div class="code">CC 104</div><div class="title">Info Mgmt</div><div class="time">7–10</div></div>
-        <div class="block you" style="top:25%; height:25%;"><div class="code">PT 101</div><div class="title">Platform Tech</div><div class="time">10–1</div></div>
+        <div class="block you" style="top:0%; height:25%;"><div class="code">CC 104</div><div class="title">Info Mgmt</div><div class="time">7–10</div><div class="room">TSB 503</div></div>
+        <div class="block you" style="top:25%; height:25%;"><div class="code">PT 101</div><div class="title">Platform Tech</div><div class="time">10–1</div><div class="room">TSB 503</div></div>
       </div>
       <div class="subcol gf">
-        <div class="block gf" style="top:37.5%; height:12.5%;"><div class="code">Fili 101</div><div class="title">Fili 101</div><div class="time">11:30–1</div></div>
-        <div class="block gf" style="top:75%; height:12.5%;"><div class="code">Litr 101</div><div class="title">Litr 101</div><div class="time">4–5:30</div></div>
+        <div class="block gf" style="top:37.5%; height:12.5%;"><div class="code">Fili 101</div><div class="title">Fili 101</div><div class="time">11:30–1</div><div class="room">VMB 405 · ABCOMM-1104</div></div>
+        <div class="block gf" style="top:75%; height:12.5%;"><div class="code">Litr 101</div><div class="title">Litr 101</div><div class="time">4–5:30</div><div class="room">SL · ABCOMM-2103</div></div>
       </div>
     </div>
 
     <!-- FRI -->
     <div class="daygroup">
       <div class="subcol you">
-        <div class="block you" style="top:4.17%; height:12.5%;"><div class="code">GEd 107</div><div class="title">Ethics</div><div class="time">7:30–9</div></div>
-        <div class="block you" style="top:16.67%; height:16.67%;"><div class="code">PT 101</div><div class="title">Platform Tech</div><div class="time">9–11</div></div>
-        <div class="block you" style="top:33.33%; height:16.67%;"><div class="code">PHYS 111</div><div class="title">Gen Physics 1</div><div class="time">11–1</div></div>
-        <div class="block you" style="top:58.33%; height:16.67%;"><div class="code">CC 104</div><div class="title">Info Mgmt</div><div class="time">2–4</div></div>
+        <div class="block you" style="top:4.17%; height:12.5%;"><div class="code">GEd 107</div><div class="title">Ethics</div><div class="time">7:30–9</div><div class="room">Online</div></div>
+        <div class="block you" style="top:16.67%; height:16.67%;"><div class="code">PT 101</div><div class="title">Platform Tech</div><div class="time">9–11</div><div class="room">Online</div></div>
+        <div class="block you" style="top:33.33%; height:16.67%;"><div class="code">PHYS 111</div><div class="title">Gen Physics 1</div><div class="time">11–1</div><div class="room">Online</div></div>
+        <div class="block you" style="top:58.33%; height:16.67%;"><div class="code">CC 104</div><div class="title">Info Mgmt</div><div class="time">2–4</div><div class="room">Online</div></div>
       </div>
       <div class="subcol gf">
-        <div class="block gf" style="top:12.5%; height:12.5%;"><div class="code">GEd 111</div><div class="title">Tech Writing</div><div class="time">8:30–10</div></div>
-        <div class="block gf" style="top:25%; height:12.5%;"><div class="code">Litr 101</div><div class="title">Litr 101</div><div class="time">10–11:30</div></div>
-        <div class="block gf" style="top:50%; height:12.5%;"><div class="code">COMM 103</div><div class="title">Comm 103</div><div class="time">1–2:30</div></div>
-        <div class="block gf" style="top:62.5%; height:12.5%;"><div class="code">GEd 103</div><div class="title">Rizal</div><div class="time">2:30–4</div></div>
-        <div class="block gf" style="top:75%; height:12.5%;"><div class="code">Fili 103</div><div class="title">Retorika</div><div class="time">4–5:30</div></div>
-        <div class="block gf" style="top:87.5%; height:12.5%;"><div class="code">GEd 110</div><div class="title">Und. the World</div><div class="time">5:30–7</div></div>
+        <div class="block gf" style="top:12.5%; height:12.5%;"><div class="code">GEd 111</div><div class="title">Tech Writing</div><div class="time">8:30–10</div><div class="room">Online · ABCOMM-2103</div></div>
+        <div class="block gf" style="top:25%; height:12.5%;"><div class="code">Litr 101</div><div class="title">Litr 101</div><div class="time">10–11:30</div><div class="room">Online · ABCOMM-2103</div></div>
+        <div class="block gf" style="top:50%; height:12.5%;"><div class="code">COMM 103</div><div class="title">Comm 103</div><div class="time">1–2:30</div><div class="room">Online · ABCOMM-2103</div></div>
+        <div class="block gf" style="top:62.5%; height:12.5%;"><div class="code">GEd 103</div><div class="title">Rizal</div><div class="time">2:30–4</div><div class="room">Online · ABCOMM-2103</div></div>
+        <div class="block gf" style="top:75%; height:12.5%;"><div class="code">Fili 103</div><div class="title">Retorika</div><div class="time">4–5:30</div><div class="room">Online · ABCOMM-2103</div></div>
+        <div class="block gf" style="top:87.5%; height:12.5%;"><div class="code">GEd 110</div><div class="title">Und. the World</div><div class="time">5:30–7</div><div class="room">Online · ABCOMM-1104</div></div>
       </div>
     </div>
 
     <!-- SAT -->
     <div class="daygroup">
       <div class="subcol you">
-        <div class="block you" style="top:0%; height:41.67%;"><div class="code">OOP 101</div><div class="title">OOP</div><div class="time">7–12</div></div>
-        <div class="block you" style="top:50%; height:25%;"><div class="code">PHYS 111</div><div class="title">Gen Physics 1</div><div class="time">1–4</div></div>
+        <div class="block you" style="top:0%; height:25%;"><div class="code">OOP 101</div><div class="title">OOP</div><div class="time">7–10</div><div class="room">TSB 502</div></div>
+        <div class="block you" style="top:25%; height:16.67%;"><div class="code">OOP 101</div><div class="title">OOP</div><div class="time">10–12</div><div class="room">GZB 303</div></div>
+        <div class="block you" style="top:50%; height:25%;"><div class="code">PHYS 111</div><div class="title">Gen Physics 1</div><div class="time">1–4</div><div class="room">Physics Lab</div></div>
       </div>
       <div class="subcol gf empty"></div>
     </div>
@@ -276,7 +291,7 @@
     <!-- SUN -->
     <div class="daygroup">
       <div class="subcol you">
-        <div class="block you" style="top:75%; height:25%;"><div class="code">AI 101</div><div class="title">Linear Algebra AI</div><div class="time">4–7</div></div>
+        <div class="block you" style="top:75%; height:25%;"><div class="code">AI 101</div><div class="title">Linear Algebra AI</div><div class="time">4–7</div><div class="room">GZB 305</div></div>
       </div>
       <div class="subcol gf empty"></div>
     </div>
@@ -289,4 +304,5 @@
   </footer>
 </div>
 </body>
-</html>
+                                                                                                                                                                     </html>
+                                                                                               
